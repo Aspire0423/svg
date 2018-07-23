@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
+  <link rel="stylesheet" href="styles/index.css">
+  <link rel="stylesheet" href="styles/svg.select.css">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+
+  <link rel="stylesheet" href="//apps.bdimg.com/libs/jqueryui/1.10.4/css/jquery-ui.min.css"> -->
+  <script src="fonts/iconfont.js"></script>
+  <link rel="stylesheet" href="/styles/jPicker-1.1.6.min.css">
+<link rel="stylesheet" href="styles/fonts.css">
+  <title>创图汇设计</title>
+</head>
+<body style="background:#ccc">
+  <header>
+    <nav>
+      <div class="svgbox">
+        <div class="pagelogo"><img src="images/icon-logo.png" alt="" srcset=""/></div>
+        <div class="pagesize">
+          <button class="cbut" id="sizepageEdit">页面尺寸</button>
+          <button class="cbut">下单印刷</button>
+        </div>
+        <div class="psizeselect">
+          <p>当前尺寸</p>
+          <div class="sizeline">
+            <span>宽度<font>(像素)</font></span>
+            <input type="number" id="sizeWidth" value="180" />
+          </div>
+          <div class="sizeline">
+            <span>高度<font>(像素)</font></span>
+            <input type="number" id="sizeHeight" value="60" />
+          </div>
+          <div class="sizeline cers" style="display:none">
+            <button>新建尺寸</button>
+          </div>
+        </div>
+
+        <div class="namepin" aria-placeholder="未命名" id="namepin" contenteditable="true" maxlength='5'>作品名字未确定...</div>
+
+        <div id="ghh"></div>
+
+        <div class="usercenter">
+          <div class="skin"><svg class="icon"><use xlink:href="#icon-moban"></use></svg></div>
+          <div class="signin" id="userdop">
+            <svg class="icon"><use xlink:href="#icon-xiala"></use></svg>
+            <span>PARAGON</span>
+            <img src="images/sina.png" alt="" srcset="" />
+          </div>
+        </div>
+        <div class="signlist">
+          <div class="memberhead">
+            <span>PARAGON</span>
+            <svg class="icon"><use xlink:href="#icon-shezhi1"></use></svg>
+          </div>
+          <div class="usechan">
+            <a href="#">修改头像</a>
+            <a href="#">修改昵称</a>
+            <a href="#">修改密码</a>
+          </div>
+          <div class="usebody">
+            <div class="usectol_list">
+              <svg class="icon"><use xlink:href="#icon-shouji"></use></svg>
+              <span>绑定手机</span>
+            </div>
+            <div class="usectol_list">
+              <svg class="icon"><use xlink:href="#icon-duanxin"></use></svg>
+              <span>绑定邮箱</span>
+            </div>
+            <div class="usectol_list">
+              <svg class="icon"><use xlink:href="#icon-yue"></use></svg>
+              <span>充值</span>
+            </div>
+            <div class="usectol_list unsign">
+              <svg class="icon"><use xlink:href="#icon-jian"></use></svg>
+              <span>退出登录</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="ctrls">
+          <button class="ctols" id="prevHandle" title="Ctrl+Z">
+            <svg class="icon"><use xlink:href="#icon-chexiao"></use></svg>
+            <span>撤销</span>
+          </button>
+          <button class="ctols" id="nextHandle">
+            <svg class="icon"><use xlink:href="#icon-huifu_icon"></use></svg>
+            <span>恢复</span>
+          </button>
+          <button class="ctols">
+            <svg class="icon"><use xlink:href="#icon-fenxiang3"></use></svg>
+            <span>分享</span>
+          </button>
+          <button class="ctols" id="savepng">
+            <svg class="icon"><use xlink:href="#icon-xiazai2"></use></svg>
+            <span>下载</span>
+          </button>
+          <button class="ctols" id='pdf'>
+            <svg class="icon"><use xlink:href="#icon-09"></use></svg>
+            <span>保存</span>
+          </button>
+        </div>
+        <div class="skincolor">
+          <div class="windowheader">
+            <span>皮肤颜色</span>
+            <svg class="icon"><use xlink:href="#icon-dazhongicon08"></use></svg>
+          </div>
+          <div class="windowbody">
+            <ul class="skinlist">
+              <li class="skinitem"></li>
+            </ul>
+            <input type="color" name="width" id="skinColor" value="#a438ff" />
+          </div>
+          
+        </div>
+      </div>
+    </nav>
+  </header>
+
+<div class="bodybox">
+  <div class="bodybox_left" id='bodybox_left'>
+    <div id="tools" class="tools">
+      <div class="nav">
+        <div class="navitem">
+          <svg title="文字">
+            <use xlink:href='#icon-wenben1'></use>
+          </svg>
+          <span>文字</span>
+        </div>
+        <div class="navitem">
+          <svg title="素材">
+            <use xlink:href='#icon-tuxing'></use>
+          </svg>
+          <span>素材</span>
+        </div>
+        <div class="navitem">
+          <svg title="模板">
+            <use xlink:href='#icon-iconset0335'></use>
+          </svg>
+          <span>模板</span>
+        </div>
+        <div class="navitem">
+          <svg title="背景">
+            <use xlink:href='#icon-iconfonticonfontbeijingyanse'></use>
+          </svg>
+          <span>背景</span>
+        </div>
+        <div class="navitem">
+          <svg title="上传">
+            <use xlink:href='#icon-shangchuan1'></use>
+          </svg>
+          <span>上传</span>
+        </div>
+        
+      </div>
+      
+      <div class="conters">
+        <div class="tersbox">
+          <div class="box_a">
+            <div class="headerCreat" name='heade' title="点击添加一个标题" id="headerCreat">添加一个标题</div>
+            <div class="headerCreat">添加一个正文</div>
+          </div>
+        </div>
+        <div class="tersbox">
+          <ul class="shape_lists">
+            <li class="shaplist_cho">
+              <img src="images/sina.png" alt="" />
+              <span>热门素材</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>形状</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>图表</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>图标</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>图片</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>插图</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>电商</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>免扣素材</span>
+            </li>
+            <li>
+              <img src="images/sina.png" alt="" />
+              <span>我的素材</span>
+            </li>
+          </ul>
+          <div class="items_shapes">
+            <ul class="slists">
+              <li class="sl_chos">全部</li>
+              <li>儿童节</li>
+              <li>父亲节</li>
+              <li>六月</li>
+              <li>端午节</li>
+              <li>电商节</li>
+              <li>节日</li>
+              <li>数字</li>
+              <li>建党节</li>
+              <li>更多</li>
+            </ul>
+            <div class="klists">
+                <div class="conitem" id="c_shapes">
+                  <img src="images/sina.png" alt="" />
+                </div>
+                <div class="conitem" id="c_texts">
+                  <img src="images/sina.png" alt="" />
+                </div>
+                <div class="conitem" id="c_modles">
+                  <img src="images/sina.png" alt="" />
+                </div>
+                <div class="conitem" id="c_images">
+                  <img src="images/sina.png" alt="" />
+                </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="tersbox" title="模板">
+          <ul class="shape_lists">
+            <li class="shaplist_cho">动物</li>
+            <li>植物</li>
+            <li>人物</li>
+            <li>风景</li>
+          </ul>
+          <div class="items_shapes">
+            <div class="conitem">
+              <img src="images/sina.png" alt="" />
+            </div>
+            <div class="conitem" id="c_texts">
+              <img src="images/sina.png" alt="" />
+            </div>
+            <div class="conitem" id="c_modles">
+              <img src="images/sina.png" alt="" />
+            </div>
+            <div class="conitem" id="c_images">
+              <img src="images/sina.png" alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="tersbox" style="display:block">
+          <div class="preinstacolor">
+            <p>预设颜色</p>
+            <ul class="installcolor">
+              <li style="background:khaki;"></li>
+              <li style="background:plum;"></li>
+              <li style="background:linear-gradient(to right top,blue,yellow);"></li>
+              <li style="background:linear-gradient(to right,#00aaff,#ccc);"></li>
+              <li style="background:fuchsia;"></li>
+              <li style="background:goldenrod;"></li>
+              <li style="background:yellow;"></li>
+            </ul>
+          </div>
+          <div class="instalbg">
+            <button>自定义背景</button>
+            <p>点击色块或素材即可更改背景。若无发生变化，请检查是否被上层图片所遮盖</p>
+          </div>
+          <div class="groom_bg">
+            <ul class="bgromlist">
+              <li class="gr_cho">全部</li>
+              <li>商务科技</li>
+              <li>商务科技</li>
+              <li>商务科技</li>
+              <li>商务科技</li>
+              <li>商务科技</li>
+            </ul>
+            <ul class="listbg">
+              <li><img src="images/asd.jpg" alt=""/></li>
+              <li><img src="images/asd.jpg" alt=""/></li>
+              <li><img src="images/asd.jpg" alt=""/></li>
+              <li><img src="images/asd.jpg" alt=""/></li>
+              <li><img src="images/asd.jpg" alt=""/></li>
+              <li><img src="images/asd.jpg" alt=""/></li>
+            </ul>
+          </div>
+        </div>
+        <div class="tersbox">
+          <div class="update">
+            <label for="updte" class="updt">上传按钮</label>
+            <input type="file" name="updte" id="updte">
+          </div>
+          <div id="upress">
+            <img src="images/asd.jpg" alt="" srcset="">
+          </div>
+        </div>
+        <div class="btn_close" id="tools_btn_close">
+            <svg title="收起">
+              <use xlink:href='#icon-103fangxiang_xiangzuo'></use>
+            </svg>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="bodybox_rig" id="bodybox_rig">
+    <div class="boxcanvas" id="boxcanvas">
+      <div id="ctrol_shapes" class="ctroll">
+        <div class="box_wh">
+          <input type="color" class="bbox" id="shape_fill" value="#00aaff" />
+        </div>
+        <div class="box_wh" title="宽">
+          <span>宽</span>
+          <input type="number" class="bbox" id="Swidth" value="0" />
+        </div>
+        <div class="box_wh" title="高">
+          <span>高</span>
+          <input type="number" class="bbox" id="Sheight" value="0" />
+        </div>
+        <div class="box_wh" title="X">
+          <span>x</span>
+          <input type="number" class="bbox" id="SposX" value="0" />
+        </div>
+        <div class="box_wh" title="Y">
+          <span>y</span>
+          <input type="number" class="bbox" id="SposY" value="0" />
+        </div>
+        <div class="box_wh" title="旋转">
+          <span>旋转</span>
+          <input type="number" class="bbox" id="shape_angle" value="0" />
+        </div>
+        <div class="box_wh" title="X倾斜">
+            <span>X倾斜</span>
+            <input type="number" class="bbox" id="shape_skewX" value="0" />
+        </div>
+        <div class="box_wh" title="Y倾斜">
+            <span>Y倾斜</span>
+            <input type="number" class="bbox" id="shape_skewY" value="0" />
+        </div>
+        <div class="box_wh">
+          <span class="strokes" style="cursor:pointer;" id="shapestroke">描边</span>
+        </div>
+        <div class="box_wh">
+          <span style="cursor:pointer;" id="shapeshadow">阴影</span>
+        </div>
+
+        <div class="signlist strokeWindow">
+          <div class="shadowctrol">
+              <div class="sizeline">
+                  <span>描边宽度<font>(像素)</font></span>
+                  <input type="number" value="5" id="sstroke" />
+              </div>
+              <div class="sizeline">
+                  <span>描边间距<font>(像素)</font></span>
+                  <input type="number" value="5" id="sstrokedarry" />
+              </div>
+              <div class="sizeline">
+                  <span>透明度</span>
+                  <input type="number" value="100" id="sstrokeOpinaty" />
+              </div>
+              <div class="sizeline">
+                  <span>描边颜色</span>
+                  <input type="color" value="#a438ff" id="sstrokeColor" />
+              </div>
+          </div>
+        </div>
+
+        <div class="signlist shadows">
+            <div class="shadowctrol">
+                <div class="sizeline">
+                    <span>X偏移量<font>(像素)</font></span>
+                    <input type="number" value="5" id="sshadX" />
+                </div>
+                <div class="sizeline">
+                    <span>Y偏移量<font>(像素)</font></span>
+                    <input type="number" value="5" id="sshadY" />
+                </div>
+                <div class="sizeline">
+                    <span>投影范围<font>(像素)</font></span>
+                    <input type="number" value="10" id="sshadCover" />
+                </div>
+                <div class="sizeline">
+                    <span>阴影颜色<font>(像素)</font></span>
+                    <input type="color" value="#a438ff" id="sshadColor" />
+                </div>
+            </div>
+        </div>
+
+
+      </div>
+
+      <div id="ctrol_images" class="ctroll">
+        <div class="box_wh" title="宽">
+          <span>宽</span>
+          <input type="number" class="bbox" id="Mwidth" value="0" />
+        </div>
+        <div class="box_wh" title="高">
+          <span>高</span>
+          <input type="number" class="bbox" id="Mheight" value="0" />
+        </div>
+        <div class="box_wh" title="X">
+          <span>x</span>
+          <input type="number" class="bbox" id="MposX" value="0" />
+        </div>
+        <div class="box_wh" title="Y">
+          <span>y</span>
+          <input type="number" class="bbox" id="MposY" value="0" />
+        </div>
+        <div class="box_wh" title="旋转">
+          <span>旋转</span>
+          <input type="number" class="bbox" id="img_angle" value="0" />
+        </div>
+        <div class="box_wh" title="旋转">
+          <span class="filtersa">滤镜</span>
+        </div>
+      </div>
+
+      <div id="ctrol_glob" class="ctroll">
+        <div class="box_wh" title="宽" id="colors_g"></div>
+        <div class="box_wh" title="X">
+          <span>x</span>
+          <input type="number" class="bbox" id="GposX" value="0" />
+        </div>
+        <div class="box_wh" title="Y">
+          <span>y</span>
+          <input type="number" class="bbox" id="GposY" value="0" />
+        </div>
+        <div class="box_wh" title="旋转">
+          <span>旋转</span>
+          <input type="number" class="bbox" id="Gr_angle" value="0" />
+        </div>
+        <div class="box_wh">
+          <span class="filtersa" id="ungrou">取消编组</span>
+        </div>
+      </div>
+
+      <div id="ctrol_text" class="ctroll">
+       <div class="leftCtrol">
+        <div class="box_wh">
+          <input type="color" class="bbox" id="textColor" value="#00aaff" />
+        </div>
+        <div class="box_wh">
+          <select name="fonts" id="fontfamily">
+            <optgroup label="非商用字体">
+              <option value="微软雅黑" selected>微软雅黑</option>
+              <option value="新宋体">新宋体</option>
+              <option value="宋体">宋体</option>
+              <option value="站酷高端黑">站酷高端黑</option>
+              <option value="HappyZcool">站酷快乐体</option>
+              <option value="YouYuan">幼圆</option>
+              <option value="章草">章草体</option>
+              <option value="LiSu">隶书</option>
+              <option value="草檀斋毛泽东字体">草檀斋毛泽东字体</option>
+              <option value="STHupo">华文琥珀</option>
+              <option value="FZShuTi">方正舒体</option>
+              <option value="STXingkai">华文行楷</option>
+              <option value="FZPangWa">方正胖娃简体</option>
+              <option value="FZHuangCao">方正黄草简体</option>
+              <option value="FZYaoTi">方正姚体简体</option>
+              <option value="FZXingKai">方正行楷简体</option>
+              <option value="FZHuPo">方正琥珀简体</option>
+              <option value="FZShaoEr">方正少儿简体</option>
+              <option value="FZZhongQian">方正中倩简体</option>
+              <option value="FZXiaoZhuanTi">方正小篆体</option>
+            </optgroup>
+            <optgroup label="商用字体">
+              <option value ="楷体">楷体</option>
+              <option value ="黑体">黑体</option>
+            </optgroup>
+          </select>
+        </div>
+        <div class="box_wh">
+          <input type="number" class="bbox" id="fontSize" value="24" />
+        </div>
+        <div class="box_wh">
+          <select name="fontWeight" id="fontWeight" class="fontWeight">
+            <option value="100">100</option>
+            <option value="100">500</option>
+            <option value="100">900</option>
+            <option value="100">bold</option>
+            <option value="100">bolder</option>
+            <option value="100" selected>常规粗细</option>
+          </select>
+        </div>
+        <div class="box_wh font_align" title="排版方向">
+          <svg id="textdirection">
+            <use xlink:href='#icon-wenzifangxiang'></use>
+          </svg>
+        </div>
+        <div class="box_wh font_align" title="文字倾斜" id="skew">
+          <svg style="transform:skew(-15deg,0);">
+            <use xlink:href='#icon-ziti'></use>
+          </svg>
+        </div>
+        <div class="box_wh font_align" title="对齐方式" id="textAlign">
+          <svg>
+            <use xlink:href='#icon-xitongcaidan'></use>
+          </svg>
+        </div>
+        <div class="box_wh font_align" title="文字间距" id="textspace">
+          <svg>
+            <use xlink:href='#icon-paixu'></use>
+          </svg>
+        </div>
+        <div class="box_wh">
+          <span class="strokes" style="cursor:pointer;" id="texshadow">描边</span>
+        </div>
+
+        <div class="box_wh font_align" title="文字路径">
+          <svg id="textpaths">
+            <use xlink:href='#icon-danxingwenzi'></use>
+          </svg>
+        </div>
+
+        <div class="box_wh font_align" id="shades" title="渐变">
+          <svg>
+            <use xlink:href='#icon-Zfangxiang'></use>
+          </svg>
+        </div>
+        <div class="box_wh">
+          <span id="shadowediter" style="cursor:pointer;">阴影</span>
+          <input type="color" class="bbox" id="sshadow" value="#cccccc" />
+        </div>
+
+        <div class="signlist gradient" id="gradient" style="width:200px;">
+          <div class="shadowctrol">
+            <div class="sizeline">
+              <div class="bg_gradients" id="bg_gradients"></div>
+            </div>
+            <div class="sizeline">
+              <input type="color" value="#00aaff" id="starColor" class="inleft" />
+              <input type="color" value="#a438ff" id="endColor" class="inright" />
+            </div>
+            <div class="sizeline">
+              <input type="text" value="#00aaff" id="sdColor" class="inleft" />
+              <input type="text" value="#a438ff" id="edColor" class="inright" />
+            </div>
+            <div class="sizeline">
+              <span>渐变透明度</span>
+              <input type="number" value="10" class="inright" />
+            </div>
+          </div>
+        </div>
+
+        <!-- <div class="gybox"> -->
+          <div class="signlist strokeWindow">
+            <div class="shadowctrol">
+              <div class="sizeline">
+                <span>描边宽度<font>(像素)</font></span>
+                <input type="number" value="5" id="stroke" />
+              </div>
+              <div class="sizeline">
+                <span>描边间距<font>(像素)</font></span>
+                <input type="number" value="5" id="strokedarry" />
+              </div>
+              <div class="sizeline">
+                <span>透明度</span>
+                <input type="number" value="100" id="strokeOpinaty" />
+              </div>
+              <div class="sizeline">
+                <span>描边颜色</span>
+                <input type="color" value="#a438ff" id="strokeColor" />
+              </div>
+            </div>
+          </div>
+        <!-- </div> -->
+
+        <div class="signlist shadows" id="shadowctrol">
+          <div class="shadowctrol">
+            <div class="sizeline">
+              <span>X偏移量<font>(像素)</font></span>
+              <input type="number" value="5" id="shadX" />
+            </div>
+            <div class="sizeline">
+              <span>Y偏移量<font>(像素)</font></span>
+              <input type="number" value="5" id="shadY" />
+            </div>
+            <div class="sizeline">
+              <span>投影范围<font>(像素)</font></span>
+              <input type="number" value="10" id="shadCover" />
+            </div>
+            <div class="sizeline">
+              <span>阴影颜色<font>(像素)</font></span>
+              <input type="color" value="#a438ff" id="shadColor" />
+            </div>
+          </div>
+        </div>
+
+        <div class="signlist" id="textaliger">
+          <div class="font_align textaliger">
+            <svg title="左对齐" id="textleft">
+              <use xlink:href='#icon-right'></use>
+            </svg>
+            <svg title="居中对齐" id="textcenter">
+              <use xlink:href='#icon-duiqi_juzhong'></use>
+            </svg>
+            <svg title="右对齐" id="textright">
+              <use xlink:href='#icon-duiqi_youduiqi'></use>
+            </svg>
+          </div>
+        </div>
+
+        <div class="signlist textspaces">
+          <div class="shadowctrol">
+            <div class="sizeline">
+              <span>单词间距<font>(像素)</font></span>
+              <input type="number" value="5" id="wordspace" />
+            </div>
+            <div class="sizeline">
+              <span>字间距<font>(像素)</font></span>
+              <input type="number" value="5" id="fontspace" />
+            </div>
+          </div>
+        </div>
+
+        <div id="textedit" class="textedit">
+          <div class="bg_gradient"></div>
+          <input type="text" id="texting" class="texting" value="">
+          <button id="ready">确定</button>
+          <div class="font_edite" style="display:none">
+            <!-- <font>轻描淡写</font> -->
+          </div>
+        </div>
+        <div class="font_edite" style="display:none" id="font_edite"></div>
+        <div class="signlist textPaths" id="textPathse">
+          <div class="shadowctrol">
+            <div class="sizeline">
+              <svg class="tpaths">
+                <use xlink:href="#icon-lujing"></use>
+              </svg>
+            </div>
+            <div class="sizeline">
+              <svg class="tpaths">
+                <use xlink:href="#icon-lujing"></use>
+              </svg>
+            </div>
+            <div class="sizeline">
+              <svg class="tpaths">
+                <use xlink:href="#icon-chart"></use>
+              </svg>
+            </div>
+            <div class="sizeline">
+              <svg class="tpaths">
+                <use xlink:href="#icon-reduce"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+
+        </div>
+
+        <div class="rightCtrol">
+
+          <div class="box_wh">
+            <span id="copyed" style="cursor:pointer;" title="Ctrl+C">复制</span>
+          </div>
+
+          <div class="box_wh font_align" id="zindex" title="排序">
+            <svg>
+              <use xlink:href='#icon-zhediexiaoguo'></use>
+            </svg>
+          </div>
+          <div class="box_wh font_align" id="turns" title="翻转">
+            <svg>
+              <use xlink:href='#icon-shuipingfanzhuan'></use>
+            </svg>
+          </div>
+
+          <div class="box_wh">
+            <span>透明度</span>
+            <input type="number" class="bbox" id="sopacity" value="100" />
+          </div>
+
+        
+          <div class="box_wh font_align locked" title="锁定" id="locked">
+            <svg>
+              <use xlink:href='#icon-suoding'></use>
+            </svg>
+          </div>
+
+          <div class="box_wh font_align removed" title="删除" id="removed">
+            <svg>
+              <use xlink:href='#icon-shanchu'></use>
+            </svg>
+          </div>
+
+          <div class="signlist zindexs">
+            <div class="usebody">
+              <div class="usectol_list" id="forward">
+                <svg class="icon"><use xlink:href="#icon-shangyiyiceng1"></use></svg>
+                <span>上移</span>
+              </div>
+              <div class="usectol_list" id="nextpos">
+                <svg class="icon"><use xlink:href="#icon-xiayiyiceng1"></use></svg>
+                <span>下移</span>
+              </div>
+              <div class="usectol_list" id="front">
+                <svg class="icon"><use xlink:href="#icon-zhiding"></use></svg>
+                <span>置顶</span>
+              </div>
+              <div class="usectol_list" id="forback">
+                <svg class="icon"><use xlink:href="#icon-diceng"></use></svg>
+                <span>置底</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="signlist turns">
+            <div class="usebody">
+              <div class="usectol_list" id="flipX">
+                <svg class="icon"><use xlink:href="#icon-shuipingfanzhuan"></use></svg>
+                <span>水平翻转</span>
+              </div>
+              <div class="usectol_list" id="flipY">
+                <svg class="icon"><use xlink:href="#icon-chuizhifanzhuan"></use></svg>
+                <span>垂直翻转</span>
+              </div>
+              <div class="usectol_list" id="removeFlip">
+                <svg class="icon"><use xlink:href="#icon-chuizhifanzhuan"></use></svg>
+                <span>重置</span>
+              </div>
+            </div>
+          </div>
+
+        </div> 
+      </div>
+      
+
+      <div class="canvasediter" id="canvasediter">
+        <div id="draws" class="draws">
+            <div id="drawing">
+              
+            </div>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div class="boxB">
+          <div class="setboxb">
+            <div class="sebxbtn factsize" title="实际大小">1:1</div>
+            <div class="sebxbtn" title="合适大小" id="ttfs">
+              <svg><use xlink:href='#icon-fangda2'></use></svg>
+            </div>
+            <div class="sebxbtn noborder scaleSmale" title="缩小">
+              <svg><use xlink:href='#icon-jianhao'></use></svg>
+            </div>
+            <div class="sebxbtn sebtxcenter noborder" title="当前画布尺寸">
+              <span>100%</span>
+            </div>
+            <div class="sebxbtn scaleLargeer" title="放大">
+              <svg><use xlink:href='#icon-jiahao'></use></svg>
+            </div>
+            <div class="sebxbtn rote_left" title="左转90°">
+              <svg><use xlink:href='#icon-refresh'></use></svg>
+            </div>
+            <div class="sebxbtn rote_rig" title="右转90°">
+              <svg><use xlink:href='#icon-refresh'></use></svg>
+            </div>
+            <div class="sebxbtn" title="预览效果" id="testa">
+                <svg><use xlink:href='#icon-chakan'></use></svg>
+            </div>
+            <div class="sebxbtn" title="参考线" id="test">
+                <svg><use xlink:href='#icon-sheji'></use></svg>
+            </div>
+            <div class="sebxbtn noborder" title="移动画布" id="canvasMove">
+              <svg><use xlink:href='#icon-ziyouanpai'></use></svg>
+          </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="bodyboxright" id="bodyboxright">
+      <div class="pagesright">
+        <svg><use xlink:href='#icon-yemian'></use></svg>
+        <span>页面</span>
+      </div>
+      <div class="draws">
+        <ul class="draws_list">
+          <li class="draw_item draw_editing" id="draw_editing">
+              <!-- <img src="images/asd.jpg" alt="" /> -->
+              <canvas id="ppp"></canvas>
+            </li>
+        </ul>
+        <div class="drawasdd">
+          <svg><use xlink:href='#icon-jiahao'></use></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+<div class="filterbox" style="display:block">
+  <div class="insfliter">
+    <ul>
+      <li>
+        <img src="images/sina.png" id="unfilter" alt=""/>
+        <span>原图</span>
+      </li>
+      <li>
+        <img src="images/sina.png" id="sunlinght" alt=""/>
+        <span>阳光</span>
+      </li>
+      <li>
+        <img src="images/sina.png" id="filmpic" alt=""/>
+        <span>胶片</span>
+      </li>
+      <li>
+        <img src="images/sina.png" id="blues" alt=""/>
+        <span>蓝调</span>
+      </li>
+      <li>
+        <img src="images/sina.png" id="janpenpic" alt=""/>
+        <span>日系</span>
+      </li>
+
+      <li>
+        <img src="images/sina.png" id="blackwhite" alt=""/>
+        <span>黑白</span>
+      </li>
+    </ul>
+  </div>
+  <div class="filt">
+    <div class="filist">
+      <div class="filitem">
+        <div class="topflt">
+          <span>亮度</span>
+          <input type="number" value="0" id="brightness_value" />
+          <span id="">0</span>
+        </div>
+        <div class="progresf" id="Brightness">
+        </div>
+      </div>
+
+      <div class="filitem">
+        <div class="topflt">
+          <span>对比度</span>
+          <input type="number" value="0" id="contrast_value" />
+          <span id="">0</span>
+        </div>
+        <div class="progresf" id="Contrast"></div>
+      </div>
+
+      <div class="filitem">
+        <div class="topflt">
+          <span>饱和度</span>
+          <input type="number" value="0" id="saturation_value" />
+          <span id="">0</span>
+        </div>
+        <div class="progresf" id="Saturation"></div>
+      </div>
+
+      <div class="filitem">
+        <div class="topflt">
+          <span>色调</span>
+          <input type="number" value="0" id="tinge_value" />
+          <span id="">0</span>
+        </div>
+        <div class="progresf" id="Tinge"></div>
+      </div>
+
+      <div class="filitem">
+        <div class="topflt">
+          <span>模糊</span>
+          <input type="number" value="0" id="blurs_value" />
+          <span id="">0</span>
+        </div>
+        <div class="progresf" id="Blurs"></div>
+      </div>
+
+      <div class="filitem">
+        <div class="topflt">
+          <span>负片冲印效果</span>
+          <input type="number" value="0" id="negat_value" />
+          <span id="">0</span>
+        </div>
+        <div class="progresf" id="Negative"></div>
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- <div class="boxout"></div> -->
+<div class="boxhover"></div>
+
+
+<div id="boxselect" class="boxselect" >
+  
+  <div class="sele cur_lt"></div>
+  <div class="sele cur_lb"></div>
+  <div class="sele cur_rb"></div>
+  <div class="sele cur_rt"></div>
+  <div class="sele cur_rot"></div>
+
+</div>
+
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+
+<script src="//apps.bdimg.com/libs/jqueryui/1.10.4/jquery-ui.min.js"></script>
+<script src="scripts/svg.min.js"></script>
+
+<script src="scripts/svg.select.js"></script>
+<script src="scripts/svg.draggable.js"></script>
+<script src="scripts/svg.resize.js"></script>
+<script src="scripts/jquery.mousewheel.min.js"></script>
+<!-- <script src="scripts/svg.filter.js"></script>
+<script src="scripts/svg.topath.js"></script>
+<script src="scripts/saveSvgAsPng.js"></script> -->
+<script src="scripts/opentype.js"></script>
+
+
+<script src="scripts/canvg.min.js"></script>
+<script src="scripts/pubctol.js"></script>
+
+<script src="scripts/index.js"></script>
+<script src="scripts/style.js"></script> 
+<script src="scripts/MutationJS.js"></script>
+<script src="scripts/color-thief.min.js"></script>
+<script src="scripts/textediter.js"></script>
+<script src="scripts/shapeediter.js"></script>
+<script src="scripts/imageediter.js"></script>
+<script src="scripts/gEditer.js"></script>
+
+<!-- <script src="node_modules/jspdf-yworks/dist/jspdf.min.js" /></script>
+<script src="node_modules/svg2pdf.js/dist/svg2pdf.min.js"></script> -->
+
+<script src="scripts/jpicker-1.1.6.min.js"></script>
+<script src="scripts/test.js"></script>
+<script src="scripts/svg.draw.min.js"></script>
+<script src="scripts/history.js"></script>
+<!-- <script src="libs/require/require.js"></script>
+<script src="libs/require/config.js" ></script> -->
+<script>
+
+var d=document.getElementById(d);
+
+(function(){
+var xhr = new XMLHttpRequest();
+xhr.open('GET', 'images/123.svg', true);
+//xhr.responseType = 'document';
+
+xhr.overrideMimeType('text/xml');
+xhr.onload = function () {
+  if (xhr.readyState === xhr.DONE) {
+    if (xhr.status === 200) {
+      var svgel=xhr.responseText;
+
+      //drawbox.remove();
+      //var svgel=xhr.responseXML.documentElement;
+      //console.log(xhr)
+      draw.clear();
+      
+      draw.svg(svgel); //绘制模板元素进入画布
+      since();    //把原模板的尺寸和缩放赋值给当前画布
+      drawload();   //解散原模板的SVG画框并把子元素移入画布
+      drawEd();   //初始化当前画布元素
+      edpert();   //画布自适应页面
+      slEment();  //分配元素编辑事件
+
+      canvasBg();   //画布背景编辑
+      //  var hj=svgAsDataUri(canvas, {}, function(uri) {   //绘制当前画布元素在右侧缩略图
+      //    $('.draw_editing img').attr('src',uri);
+      //  });
+
+      
+      // pdf.onclick=function(){
+      //   //alert('asda')
+      //   svgPdf();
+      // }
+      
+    }
+  }
+};
+xhr.send(null);
+
+})(this)
+
+
+const svgElement = document.getElementById('canvas');
+const width = 300, height = 200;
+
+// require.config({
+//   baseUrl: './node_modules'
+// })
+// require([
+//   'svg2pdf.js/dist/svg2pdf.min',
+//   'jspdf-yworks/dist/jspdf.min'
+// ], function (svg2pdf, jsPDF) {
+
+//     const pdf = new jsPDF('l', 'pt', [402,320]);
+//     //console.log(svg2pdf,svgElement)
+
+//     const uri = pdf.output('datauristring');
+//     //pdf.save('myPDF.pdf');
+// });
+
+
+</script>
+
+
+</body>
+
+</html>
+
+
+
